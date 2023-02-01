@@ -1,4 +1,4 @@
-import Main from "./assets/sections/main"
+import Main from "./assets/sections/Main"
 
 const App = () => {
   return (
