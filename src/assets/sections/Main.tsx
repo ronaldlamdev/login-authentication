@@ -8,8 +8,8 @@ import Logo from '../images/devchallenges.svg'
 
 const Main = () => {
   return (
-    <main className=''>
-      <div className='px-5 py-6'>
+    <main className='md:flex md:justify-center md:items-center md:h-screen'>
+      <div className='px-5 py-6 md:w-[475px] md:h-[635px] md:border md:border-[#BDBDBD] md:rounded-3xl'>
         <img src={Logo} alt="logo"/>
         <h1 className='text-[#333] text-lg leading-6 mt-8 font-semibold'>
           Join thousands of learners from around the world
