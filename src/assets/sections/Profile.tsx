@@ -1,15 +1,38 @@
 import Logo from '../images/devchallenges.svg';
 import Pfp from '../images/animegirl.jpg';
+import {BsFillCaretDownFill, BsFillCaretUpFill} from 'react-icons/bs';
+import {CgProfile} from 'react-icons/cg';
+import {RiGroupFill} from 'react-icons/ri'
+import {TbLogout} from 'react-icons/tb'
 
 const Profile = () => {
   return (
     <div className=''>
       {/* Header */}
-      <header className='p-5 flex justify-between'>
+      <header className='p-5 flex justify-between relative'>
         <img src={Logo} alt="logo"/>
-        <img src={Pfp} alt='profile picture' className='w-10 h-10 rounded-lg'/>
+        <div className='flex items-center gap-2'>
+          <img src={Pfp} alt='profile picture' className='w-10 h-10 rounded-lg'/>
+          <h1 className='hidden md:flex text-sm font-bold'>Sabrina Natsume</h1>
+          <BsFillCaretDownFill className='hidden md:flex'/>
+        </div>
+        <div className='absolute right-0 top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl'>
+          <div className='flex hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
+            <CgProfile />
+            <h2>My Profile</h2>
+          </div>
+          <div className='flex hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
+            <RiGroupFill />
+            <h2>Group Chat</h2>
+          </div>
+          <div className='bg-[#E0E0E0] h-[1px]'/>
+          <div className='flex items-center gap-2 text-[#EB5757] font-medium text-sm'>
+            <TbLogout />
+            <h2>Logout</h2>
+          </div>
+        </div>
       </header>
-      <div className='md:border md:border-[#E0E0E0] md:rounded-xl pb-4'>
+      <div className='md:border md:border-[#E0E0E0] md:rounded-xl md:mx-48 md:max-w-[840px] pb-4 md:mb-4'>
         {/* Header for basic personal info */}
         <div className='px-5 flex flex-col items-center'>
           <h1 className='text-[#000000] text-2xl'>Personal info</h1>
