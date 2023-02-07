@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 const Profile = () => {
   
+  // Open and closes the menu next to header pfp image
   const [menu, setMenu] = useState(false);
   const handleMenu = () => {
     setMenu(!menu)
@@ -16,7 +17,7 @@ const Profile = () => {
   return (
     <div className=''>
       {/* Header */}
-      <header className='p-5 flex justify-between relative'>
+      <header className='p-5 flex justify-between w-full relative'>
         <a href='/'>
           <img src={Logo} alt="logo"/>
         </a>
@@ -25,7 +26,7 @@ const Profile = () => {
           <h1 className='hidden md:flex text-sm font-bold'>Sabrina Natsume</h1>
           {menu ? <BsFillCaretUpFill onClick={handleMenu} className='hidden md:flex cursor-pointer'/> : <BsFillCaretDownFill onClick={handleMenu} className='hidden md:flex cursor-pointer'/>}
         </div>
-        <div className={menu ? 'hidden md:flex md:flex-col md:justify-evenly absolute right-[4.5px] top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl' : 'hidden'}>
+        <div className={menu ? 'hidden md:flex bg-white md:flex-col md:justify-evenly absolute right-[4.5px] top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl' : 'hidden'}>
           <div className='flex py-2 px-3 duration-300 cursor-pointer hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
             <CgProfile />
             <h2>My Profile</h2>
@@ -41,12 +42,16 @@ const Profile = () => {
           </div>
         </div>
       </header>
-      <div className='md:border md:border-[#E0E0E0] md:rounded-xl md:mx-48 md:max-w-[840px] pb-4 md:mb-4'>
-        {/* Header for basic personal info */}
-        <div className='px-5 flex flex-col items-center'>
+
+      {/* Header for basic personal info */}
+        <div className='px-5 flex flex-col items-center mb-11'>
           <h1 className='text-[#000000] text-2xl'>Personal info</h1>
           <h2 className='text-[#000000] text-sm font-light'>Basic info, like your name and photo</h2>
         </div>
+
+      {/* Form to fill basic info */}
+
+      <div className='md:border md:border-[#E0E0E0] md:rounded-xl md:mx-auto md:max-w-[840px] pb-4 md:mb-4'>
         <div className='px-5 mt-10 flex justify-between items-center'>
           <div>
             <h1 className='text-2xl text-[#000000]'>Profile</h1>
