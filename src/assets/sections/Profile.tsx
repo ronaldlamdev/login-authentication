@@ -17,11 +17,13 @@ const Profile = () => {
     <div className=''>
       {/* Header */}
       <header className='p-5 flex justify-between relative'>
-        <img src={Logo} alt="logo"/>
+        <a href='/'>
+          <img src={Logo} alt="logo"/>
+        </a>
         <div className='flex items-center gap-2'>
           <img src={Pfp} alt='profile picture' className='w-10 h-10 rounded-lg'/>
           <h1 className='hidden md:flex text-sm font-bold'>Sabrina Natsume</h1>
-          {menu ? <BsFillCaretUpFill onClick={handleMenu} className='hidden md:flex'/> : <BsFillCaretDownFill onClick={handleMenu} className='hidden md:flex'/>}
+          {menu ? <BsFillCaretUpFill onClick={handleMenu} className='hidden md:flex cursor-pointer'/> : <BsFillCaretDownFill onClick={handleMenu} className='hidden md:flex cursor-pointer'/>}
         </div>
         <div className={menu ? 'hidden md:flex md:flex-col md:justify-evenly absolute right-[4.5px] top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl' : 'hidden'}>
           <div className='flex py-2 px-3 duration-300 cursor-pointer hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
@@ -52,7 +54,7 @@ const Profile = () => {
               Some info may be visible to other people
             </h2>
           </div>
-          <button className='text-[#828282] font-medium rounded-xl px-8 py-[.375rem] border-[#828282] border'>
+          <button className='text-[#828282] hover:bg-[#828282] hover:text-white duration-300 font-medium rounded-xl px-8 py-[.375rem] border-[#828282] border'>
             Edit
           </button>
         </div>
@@ -79,7 +81,7 @@ const Profile = () => {
             <h3 className='text-[#BDBDBD] font-medium text-sm'>PASSWORD</h3>
             <h3>********</h3>
           </div>
-          <button className='font-medium ml-5 mt-8 text-[#fff] bg-[#2F80ED] rounded-lg px-8 py-2'>
+          <button className='font-medium hover:opacity-80 duration-300 ml-5 mt-8 text-[#fff] bg-[#2F80ED] rounded-lg px-8 py-2'>
             Save
           </button>
         </div>
