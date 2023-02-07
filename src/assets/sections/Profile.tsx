@@ -10,9 +10,11 @@ const Profile = () => {
   
   // Open and closes the menu next to header pfp image
   const [menu, setMenu] = useState(false);
-  const handleMenu = () => {
-    setMenu(!menu)
-  }
+  const handleMenu = () => setMenu(!menu)
+
+  // Edit on when save button is off and vice versa
+  const [edit, SetEdit] = useState(false);
+  const handleEdit = () => SetEdit(!edit);
 
   return (
     <div className=''>
@@ -59,14 +61,14 @@ const Profile = () => {
               Some info may be visible to other people
             </h2>
           </div>
-          <button className='text-[#828282] hover:bg-[#828282] hover:text-white duration-300 font-medium rounded-xl px-8 py-[.375rem] border-[#828282] border'>
+          <button onClick={handleEdit} className={edit ? 'text-[#828282] hover:bg-[#828282] hover:text-white duration-300 font-medium rounded-xl px-8 py-[.375rem] border-[#828282] border' : 'invisible'}>
             Edit
           </button>
         </div>
 
         {/* Change personal info */}
         <div>
-          <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
+          <div className='px-5 py-8 flex justify-between items-center border-y border-[#E0E0E0]'>
             <h3 className='text-[#BDBDBD] font-medium text-sm'>PHOTO</h3>
             <img src={Pfp} alt='profile picture' className='w-20 h-20 rounded-lg'/>
           </div>
@@ -86,7 +88,7 @@ const Profile = () => {
             <h3 className='text-[#BDBDBD] font-medium text-sm'>PASSWORD</h3>
             <h3>********</h3>
           </div>
-          <button className='font-medium hover:opacity-80 duration-300 ml-5 mt-8 text-[#fff] bg-[#2F80ED] rounded-lg px-8 py-2'>
+          <button onClick={handleEdit} className={edit ? 'invisible' : 'font-medium hover:opacity-80 duration-300 ml-5 mt-8 text-[#fff] bg-[#2F80ED] rounded-lg px-8 py-2'}>
             Save
           </button>
         </div>
