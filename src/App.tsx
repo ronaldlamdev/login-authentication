@@ -4,7 +4,7 @@ import Profile from "./assets/sections/Profile"
 const App = () => {
   return (
     <>
-      <Profile />
+      <Main />
     </>
   )
 }

@@ -35,7 +35,7 @@ const Main = () => {
               </label>
             </div>
           </div>
-          <button className='bg-[#2F80ED] mt-5 cursor-pointer leading-5 rounded-lg py-3 px-14 text-[#FFF] font-semibold'>
+          <button className='bg-[#2F80ED] mt-5 cursor-pointer leading-5 rounded-lg py-3 px-14 text-[#FFF] font-semibold hover:opacity-80 duration-300'>
             Start coding now
           </button>
         </form>
@@ -43,20 +43,20 @@ const Main = () => {
         <div className='flex flex-col items-center mt-7'>
           <p className='text-sm text-[#828282]'>or continue with these social profile</p>
           <div className='flex mt-5 gap-5'>
-            <div className='border cursor-pointer border-[#828282] p-2 rounded-full'>
-              <AiOutlineGoogle size={23} className='text-[#828282]' />
+            <div className='border cursor-pointer border-[#828282] group hover:border-[#2F80ED] p-2 rounded-full'>
+              <AiOutlineGoogle size={23} className='text-[#828282] group-hover:text-[#2F80ED] duration-300' />
             </div>
-            <div className='border cursor-pointer border-[#828282] p-2 rounded-full'>
-              <AiFillFacebook size={23} className='text-[#828282]' />
+            <div className='border cursor-pointer border-[#828282] group hover:border-[#2F80ED] p-2 rounded-full'>
+              <AiFillFacebook size={23} className='text-[#828282] group-hover:text-[#2F80ED] duration-300' />
             </div>
-            <div className='border cursor-pointer border-[#828282] p-2 rounded-full'>
-              <AiOutlineTwitter size={23} className='text-[#828282]' />
+            <div className='border cursor-pointer border-[#828282] group hover:border-[#2F80ED] p-2 rounded-full'>
+              <AiOutlineTwitter size={23} className='text-[#828282] group-hover:text-[#2F80ED] duration-300' />
             </div>
-            <div className='border cursor-pointer border-[#828282] p-2 rounded-full'>
-              <AiFillGithub size={23} className='text-[#828282]' />
+            <div className='border cursor-pointer border-[#828282] group hover:border-[#2F80ED] p-2 rounded-full'>
+              <AiFillGithub size={23} className='text-[#828282] group-hover:text-[#2F80ED] duration-300' />
             </div>
           </div>
-          <p className='text-[#828282] mt-6 text-sm'>Already a member? <span className='text-[#2D9CDB] cursor-pointer'>Login</span></p>
+          <p className='text-[#828282] mt-6 text-sm'>Already a member? <span className='text-[#2D9CDB] hover:underline cursor-pointer'>Login</span></p>
         </div>
       </div>
     </main>
