@@ -4,8 +4,15 @@ import {BsFillCaretDownFill, BsFillCaretUpFill} from 'react-icons/bs';
 import {CgProfile} from 'react-icons/cg';
 import {RiGroupFill} from 'react-icons/ri'
 import {TbLogout} from 'react-icons/tb'
+import { useState } from 'react';
 
 const Profile = () => {
+  
+  const [menu, setMenu] = useState(false);
+  const handleMenu = () => {
+    setMenu(!menu)
+  }
+
   return (
     <div className=''>
       {/* Header */}
@@ -14,19 +21,19 @@ const Profile = () => {
         <div className='flex items-center gap-2'>
           <img src={Pfp} alt='profile picture' className='w-10 h-10 rounded-lg'/>
           <h1 className='hidden md:flex text-sm font-bold'>Sabrina Natsume</h1>
-          <BsFillCaretDownFill className='hidden md:flex'/>
+          {menu ? <BsFillCaretUpFill onClick={handleMenu} className='hidden md:flex'/> : <BsFillCaretDownFill onClick={handleMenu} className='hidden md:flex'/>}
         </div>
-        <div className='absolute right-0 top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl'>
-          <div className='flex hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
+        <div className={menu ? 'hidden md:flex md:flex-col md:justify-evenly absolute right-[4.5px] top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl' : 'hidden'}>
+          <div className='flex py-2 px-3 duration-300 cursor-pointer hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
             <CgProfile />
             <h2>My Profile</h2>
           </div>
-          <div className='flex hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
+          <div className='flex py-2 px-3 duration-300 cursor-pointer hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
             <RiGroupFill />
             <h2>Group Chat</h2>
           </div>
           <div className='bg-[#E0E0E0] h-[1px]'/>
-          <div className='flex items-center gap-2 text-[#EB5757] font-medium text-sm'>
+          <div className='flex cursor-pointer py-2 px-3 items-center gap-2 text-[#EB5757] hover:bg-[#EB5757] hover:text-white duration-300 rounded font-medium text-sm'>
             <TbLogout />
             <h2>Logout</h2>
           </div>
