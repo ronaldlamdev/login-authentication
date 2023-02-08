@@ -68,25 +68,37 @@ const Profile = () => {
 
         {/* Change personal info */}
         <div>
-          <div className='px-5 py-8 flex justify-between items-center border-y border-[#E0E0E0]'>
+          <div className='px-5 py-8 flex justify-between md:ju items-center border-y border-[#E0E0E0]'>
             <h3 className='text-[#BDBDBD] font-medium text-sm'>PHOTO</h3>
             <img src={Pfp} alt='profile picture' className='w-20 h-20 rounded-lg'/>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <h3 className='text-[#BDBDBD] font-medium text-sm'>NAME</h3>
-            <h3>Sabrina Natsume</h3>
+            <div>
+              <h3 className='text-[#BDBDBD] font-medium text-sm'>NAME</h3>
+              <input type='text' placeholder='Enter your name...' className={edit ? 'hidden' : 'block'}/>
+            </div>
+            <h3 className={edit ? 'block' : 'hidden'}>Sabrina Natsume</h3>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <h3 className='text-[#BDBDBD] font-medium text-sm'>BIO</h3>
-            <h3>I am a software developer...</h3>
+            <div>
+              <h3 className='text-[#BDBDBD] font-medium text-sm'>BIO</h3>
+              <input type='text' placeholder='Enter your bio...' className={edit ? 'hidden' : 'block'}/>
+            </div>
+            <h3 className={edit ? 'block' : 'hidden'}>I am a software developer...</h3>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <h3 className='text-[#BDBDBD] font-medium text-sm'>EMAIL</h3>
-            <h3>sabrina.natsume@gmail.com</h3>
+            <div>
+              <h3 className='text-[#BDBDBD] font-medium text-sm'>EMAIL</h3>
+              <input type='text' placeholder='Enter your email...' className={edit ? 'hidden' : 'block'}/>
+            </div>
+            <h3 className={edit ? 'block' : 'hidden'}>sabrina.natsume@gmail.com</h3>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <h3 className='text-[#BDBDBD] font-medium text-sm'>PASSWORD</h3>
-            <h3>********</h3>
+            <div>
+              <h3 className='text-[#BDBDBD] font-medium text-sm'>PASSWORD</h3>
+              <input type='text' placeholder='Enter your new password...' className={edit ? 'hidden' : 'block'}/>
+            </div>
+            <h3 className={edit ? 'block' : 'hidden'}>********</h3>
           </div>
           <button onClick={handleEdit} className={edit ? 'invisible' : 'font-medium hover:opacity-80 duration-300 ml-5 mt-8 text-[#fff] bg-[#2F80ED] rounded-lg px-8 py-2'}>
             Save
