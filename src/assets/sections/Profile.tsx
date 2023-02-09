@@ -73,30 +73,30 @@ const Profile = () => {
             <img src={Pfp} alt='profile picture' className='w-20 h-20 rounded-lg'/>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <div>
+            <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>NAME</h3>
-              <input type='text' placeholder='Enter your name...' className={edit ? 'hidden' : 'block'}/>
+              <input type='text' placeholder='Enter your name...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
             </div>
             <h3 className={edit ? 'block' : 'hidden'}>Sabrina Natsume</h3>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <div>
+            <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>BIO</h3>
-              <input type='text' placeholder='Enter your bio...' className={edit ? 'hidden' : 'block'}/>
+              <textarea placeholder='Enter your bio...' className={edit ? 'hidden' : 'block break-words px-5 py-4 w-[417px] h-[92px] border border-[#828282] rounded-xl'}/>
             </div>
             <h3 className={edit ? 'block' : 'hidden'}>I am a software developer...</h3>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <div>
+            <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>EMAIL</h3>
-              <input type='text' placeholder='Enter your email...' className={edit ? 'hidden' : 'block'}/>
+              <input type='email' placeholder='Enter your email...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
             </div>
             <h3 className={edit ? 'block' : 'hidden'}>sabrina.natsume@gmail.com</h3>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
-            <div>
+            <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>PASSWORD</h3>
-              <input type='text' placeholder='Enter your new password...' className={edit ? 'hidden' : 'block'}/>
+              <input type='password' placeholder='Enter your new password...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
             </div>
             <h3 className={edit ? 'block' : 'hidden'}>********</h3>
           </div>
