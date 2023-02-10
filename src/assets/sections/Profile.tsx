@@ -1,5 +1,6 @@
 import Logo from '../images/devchallenges.svg';
 import Pfp from '../images/animegirl.jpg';
+import {AiFillCamera} from 'react-icons/ai'
 import {BsFillCaretDownFill, BsFillCaretUpFill} from 'react-icons/bs';
 import {CgProfile} from 'react-icons/cg';
 import {RiGroupFill} from 'react-icons/ri'
@@ -56,9 +57,10 @@ const Profile = () => {
       <div className='md:border md:border-[#E0E0E0] md:rounded-xl md:mx-auto md:max-w-[840px] pb-4 md:mb-4'>
         <div className='px-5 mt-10 flex justify-between items-center'>
           <div>
-            <h1 className='text-2xl text-[#000000]'>Profile</h1>
-            <h2 className='text-[#828282] text-[.813rem] font-medium'>
-              Some info may be visible to other people
+            <h1 className='text-2xl text-[#000000]'>{edit ? 'Change Info' : 'Profile'}</h1>
+            <h2 className='text-[#828282] mt-1 text-[.813rem] font-medium'>
+              {/* Some info may be visible to other people */}
+              {edit ? 'Changes will be reflected to every services' : 'Some info may be invisible to other people'}
             </h2>
           </div>
           <button onClick={handleEdit} className={edit ? 'text-[#828282] hover:bg-[#828282] hover:text-white duration-300 font-medium rounded-xl px-8 py-[.375rem] border-[#828282] border' : 'invisible'}>
@@ -69,8 +71,18 @@ const Profile = () => {
         {/* Change personal info */}
         <div>
           <div className='px-5 py-8 flex justify-between md:ju items-center border-y border-[#E0E0E0]'>
-            <h3 className='text-[#BDBDBD] font-medium text-sm'>PHOTO</h3>
-            <img src={Pfp} alt='profile picture' className='w-20 h-20 rounded-lg'/>
+            {/* Photo */}
+            <div>
+              <h3 className={edit ? 'text-[#BDBDBD] font-medium text-sm' : 'hidden'}>PHOTO</h3>
+              <div className={edit ? 'hidden' : 'flex items-center gap-5'}>
+                <div className='relative w-[72px] h-[72px]'>
+                  <img src={Pfp} className='w-[72px] h-[72px] rounded-lg brightness-75' alt='pfp'/>
+                  <AiFillCamera size={25} color='white' className='absolute cursor-pointer top-0 bottom-0 left-0 right-0 mx-auto my-auto'/>
+                </div>
+                <h3 className='text-[#828282] text-[13px] tracking-tighter leading-[18px] font-medium'>Change Photo</h3>
+              </div>
+            </div>
+            <img src={Pfp} alt='profile picture' className={edit ? 'w-20 h-20 rounded-lg block' : 'w-20 h-20 rounded-lg hidden'}/>
           </div>
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
             <div className='flex flex-col gap-4'>
