@@ -14,8 +14,20 @@ const Profile = () => {
   const handleMenu = () => setMenu(!menu)
 
   // Edit on when save button is off and vice versa
-  const [edit, SetEdit] = useState(false);
-  const handleEdit = () => SetEdit(!edit);
+  const [edit, setEdit] = useState(true);
+  const handleEdit = () => setEdit(!edit);
+
+  // Change name
+  const [name, setName] = useState('Sabrina Natsume');
+
+  // Change bio
+  const [bio, setBio] = useState('I am a software developer');
+
+  // Change email
+  const [email, setEmail] = useState('sabrina.natsume@gmail.com');
+
+  // Change password
+  const [password, setPassword] = useState('*******'); 
 
   return (
     <div className=''>
@@ -25,14 +37,24 @@ const Profile = () => {
           <img src={Logo} alt="logo"/>
         </a>
         <div className='flex items-center gap-2'>
-          <img src={Pfp} alt='profile picture' className='w-10 h-10 rounded-lg'/>
-          <h1 className='hidden md:flex text-sm font-bold'>Sabrina Natsume</h1>
+          <a href='/'>
+            <img src={Pfp} alt='profile picture' className='w-10 h-10 rounded-lg'/>
+          </a>
+          <a href='/'>
+            <h1 className='hidden md:flex hover:underline text-sm font-bold'>Sabrina Natsume</h1>
+          </a>
+
+          {/* Open dropdown menu */}
           {menu ? <BsFillCaretUpFill onClick={handleMenu} className='hidden md:flex cursor-pointer'/> : <BsFillCaretDownFill onClick={handleMenu} className='hidden md:flex cursor-pointer'/>}
         </div>
+
+        {/* Dropdown menu */}
         <div className={menu ? 'hidden md:flex bg-white md:flex-col md:justify-evenly absolute right-[4.5px] top-20 w-[184px] h-[174px] border border-[#E0E0E0] rounded-xl' : 'hidden'}>
           <div className='flex py-2 px-3 duration-300 cursor-pointer hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
             <CgProfile />
-            <h2>My Profile</h2>
+            <a href='/'>
+              <h2>My Profile</h2>
+            </a>
           </div>
           <div className='flex py-2 px-3 duration-300 cursor-pointer hover:bg-[#F2F2F2] items-center gap-2 text-[#4F4F4F] text-sm font-medium'>
             <RiGroupFill />
@@ -57,21 +79,21 @@ const Profile = () => {
       <div className='md:border md:border-[#E0E0E0] md:rounded-xl md:mx-auto md:max-w-[840px] pb-4 md:mb-4'>
         <div className='px-5 mt-10 flex justify-between items-center'>
           <div>
-            <h1 className='text-2xl text-[#000000]'>{edit ? 'Change Info' : 'Profile'}</h1>
+            <h1 className='text-2xl text-[#000000]'>{edit ? 'Profile' : 'Change Info'}</h1>
             <h2 className='text-[#828282] mt-1 text-[.813rem] font-medium'>
-              {/* Some info may be visible to other people */}
-              {edit ? 'Changes will be reflected to every services' : 'Some info may be invisible to other people'}
+              {edit ? 'Some info may be invisible to other people' : 'Changes will be reflected to every services'}
             </h2>
           </div>
+          {/* Edit button */}
           <button onClick={handleEdit} className={edit ? 'text-[#828282] hover:bg-[#828282] hover:text-white duration-300 font-medium rounded-xl px-8 py-[.375rem] border-[#828282] border' : 'invisible'}>
             Edit
           </button>
         </div>
 
-        {/* Change personal info */}
+        {/* Form to change personal info */}
         <div>
-          <div className='px-5 py-8 flex justify-between md:ju items-center border-y border-[#E0E0E0]'>
-            {/* Photo */}
+          {/* Photo */}
+          <div className='px-5 py-8 flex justify-between items-center border-y border-[#E0E0E0]'>
             <div>
               <h3 className={edit ? 'text-[#BDBDBD] font-medium text-sm' : 'hidden'}>PHOTO</h3>
               <div className={edit ? 'hidden' : 'flex items-center gap-5'}>
@@ -84,34 +106,44 @@ const Profile = () => {
             </div>
             <img src={Pfp} alt='profile picture' className={edit ? 'w-20 h-20 rounded-lg block' : 'w-20 h-20 rounded-lg hidden'}/>
           </div>
+
+          {/* Name */}
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
             <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>NAME</h3>
-              <input type='text' placeholder='Enter your name...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
+              <input onChange={e => setName(e.target.value)} type='text' placeholder='Enter your name...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
             </div>
-            <h3 className={edit ? 'block' : 'hidden'}>Sabrina Natsume</h3>
+            <h3 className={edit ? 'block' : 'hidden'}>{name}</h3>
           </div>
+
+          {/* BIO */}
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
             <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>BIO</h3>
-              <textarea placeholder='Enter your bio...' className={edit ? 'hidden' : 'block break-words px-5 py-4 w-[417px] h-[92px] border border-[#828282] rounded-xl'}/>
+              <textarea onChange={e => setBio(e.target.value)} placeholder='Enter your bio...' className={edit ? 'hidden' : 'block break-words px-5 py-4 w-[417px] h-[92px] border border-[#828282] rounded-xl'}/>
             </div>
-            <h3 className={edit ? 'block' : 'hidden'}>I am a software developer...</h3>
+            <h3 className={edit ? 'block' : 'hidden'}>{bio}</h3>
           </div>
+
+          {/* Email */}
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
             <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>EMAIL</h3>
-              <input type='email' placeholder='Enter your email...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
+              <input onChange={e => setEmail(e.target.value)} type='email' placeholder='Enter your email...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
             </div>
-            <h3 className={edit ? 'block' : 'hidden'}>sabrina.natsume@gmail.com</h3>
+            <h3 className={edit ? 'block' : 'hidden'}>{email}</h3>
           </div>
+
+          {/* Password */}
           <div className='px-5 py-8 flex justify-between items-center border-b border-[#E0E0E0]'>
             <div className='flex flex-col gap-4'>
               <h3 className='text-[#BDBDBD] font-medium text-sm'>PASSWORD</h3>
-              <input type='password' placeholder='Enter your new password...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
+              <input onChange={e => setPassword(e.target.value)} type='password' placeholder='Enter your new password...' className={edit ? 'hidden' : 'block pl-5 w-[417px] h-[52px] border border-[#828282] rounded-xl'}/>
             </div>
-            <h3 className={edit ? 'block' : 'hidden'}>********</h3>
+            <h3 className={edit ? 'block' : 'hidden'}>{password}</h3>
           </div>
+          
+          {/* Save button */}
           <button onClick={handleEdit} className={edit ? 'invisible' : 'font-medium hover:opacity-80 duration-300 ml-5 mt-8 text-[#fff] bg-[#2F80ED] rounded-lg px-8 py-2'}>
             Save
           </button>
